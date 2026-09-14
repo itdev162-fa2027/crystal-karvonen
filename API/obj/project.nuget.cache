@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ApLXZ/7snfQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\API\\API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ckarv\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.20\\microsoft.aspnetcore.openapi.9.0.20.nupkg.sha512",
+    "C:\\Users\\ckarv\\.nuget\\packages\\microsoft.openapi\\1.6.30\\microsoft.openapi.1.6.30.nupkg.sha512"
+  ],
+  "logs": []
+}
