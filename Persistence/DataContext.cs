@@ -8,6 +8,8 @@ namespace Persistence
     {
         public DbSet<WeatherForecast> WeatherForecast { get; set; }
 
+        public DbSet<Product> Products { get; set; }
+
         public string DbPath { get; }
 
         public DataContext()
@@ -17,17 +19,20 @@ namespace Persistence
             DbPath = System.IO.Path.Join(path, "Blogbox.db"); 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            options.UseSqlite($"Data Source={DbPath}");
+            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var path = Environment.GetFolderPath(folder);
+            DbPath = System.IO.Path.Join(path, "Blogbox.db");
         }
 
-
-    } 
-
-
-
-
-
-
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlite($"Data Source={DbPath}");
+            }
+        }
+    }
 }
