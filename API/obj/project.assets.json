@@ -3192,8 +3192,10 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "Application >= 1.0.0",
+      "Domain >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.20",
-      "Microsoft.EntityFrameworkCore.Design >= 9.0.0"
+      "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
+      "Persistence >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3230,6 +3232,12 @@
           "projectReferences": {
             "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Application\\Application.csproj"
+            },
+            "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\ckarv\\OneDrive\\Documents\\GitHub\\ITDEV162\\crystal-karvonen\\Persistence\\Persistence.csproj"
             }
           }
         }
