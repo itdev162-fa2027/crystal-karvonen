@@ -89,4 +89,31 @@
   margin: 0;
   opacity: 0.8;
 }
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-content > div:first-child {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    justify-content: center;
+  }
+
+  .app-header h1 {
+    font-size: 32px;
+  }
+
+  .app-header p {
+    font-size: 16px;
+  }
+}
 
