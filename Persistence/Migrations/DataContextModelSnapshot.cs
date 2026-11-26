@@ -17,6 +17,63 @@ namespace Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
 
+            modelBuilder.Entity("Domain.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("CompletedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Domain.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("PriceAtPurchase")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
+                });
+
             modelBuilder.Entity("Domain.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -31,6 +88,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(1000)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
@@ -45,6 +103,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
@@ -76,6 +135,22 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WeatherForecast");
+                });
+
+            modelBuilder.Entity("Domain.OrderItem", b =>
+                {
+                    b.HasOne("Domain.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Domain.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }
